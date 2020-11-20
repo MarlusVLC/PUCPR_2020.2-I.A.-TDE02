@@ -1,0 +1,31 @@
+Algoritmo de Busca Gulosa - 1.0
+Busca em Largura Limitada - 2.0
+Algoritmo de Busca A*     - 3.0
+			    6.0
+
+Mínimo de 8 heurísticas diferentes - 2.0
+	2 originais - 1 por aluno
+
+Mínimo 1 estratégia para evitar loop - 1.0
+
+
+Testes - 1.0
+	Quas heurísticas devem ser implementadas?
+		Testá-las de maneira combinada e separadamente.
+	Qual o impacto dos diferentes valores de profundidade?
+	Qual o impacto dos pesos na combinação das heurísticas?
+
+Relatório - 1.0
+	Descrição das heurísticas, com exemplos (preferencialmente ilustrados)
+		Qual aluno desenvolveu e implementou?
+	Descrição (da mesma forma) da estratégia usada para evitar loops
+	Análise dos experimentos comparndo as heurísticas individual e combinadamente.
+
+Entrega do código - 23/11/2020 23:59
+Entrga do Relatório - 25/11/2020 23:59
+Prova de autoria - 26/11/2020 na aula
+
+Bonus pela colocacao no torneio
+	1 lufr - 1.0
+	2 lugar - 0.6
+	3 luga - 0.3

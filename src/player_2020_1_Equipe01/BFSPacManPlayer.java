@@ -2,14 +2,17 @@ package player_2020_1_Equipe01;
 
 import pacman.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Use this class for your basic DFS player implementation.
  * @author grenager
  *
  */
-public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
+public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
     int DEBUG_randomCounter = 0;
   /**

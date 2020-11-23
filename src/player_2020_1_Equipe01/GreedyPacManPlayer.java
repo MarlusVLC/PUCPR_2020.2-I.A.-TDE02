@@ -28,8 +28,6 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
 
 
   public Move chooseMove(Game game) {
-      //TODO Para evitar loop: Gerar um randInt que seleciona um movimento do LegalMoves
-      //TODO Para evitar loop: Executar uma booleana que detecta se o PacMan já executou um movimento reverso.
       State s = game.getCurrentState();
 
       HashMap<State, Move> nextNodes = new HashMap<>();
@@ -62,7 +60,7 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
 //          System.out.println(nextNodes.get(nextNode));
 //          System.out.println(" ");
 
-          double turnaroundPenalty = (lastMove == nextNodes.get(nextNode).getOpposite() ? -10.0 : 0.0);
+//          double turnaroundPenalty = (lastMove == nextNodes.get(nextNode).getOpposite() ? -10.0 : 0.0);
 
           if (evaluateState(nextNode) + turnaroundPenalty >= evaluateState(bestNode)) {  //Isso evita que o PacMan faca o mesmo movimento anterior sem considerar danos graves
               bestNode = nextNode;
@@ -84,8 +82,8 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
    * @return an estimate of the value of the State.
    */
   public double evaluateState(State state) {
-      Location pacLOC = state.getPacManLocation();
-      List<Location> allGhostLoc = state.getGhostLocations();
+          Location pacLOC = state.getPacManLocation();
+          List<Location> allGhostLoc = state.getGhostLocations();
       LocationSet allDotLoc = state.getDotLocations();
 
 

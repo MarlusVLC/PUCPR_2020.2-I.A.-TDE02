@@ -2,10 +2,7 @@ package player_2020_1_Equipe01;
 
 import pacman.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Use this class for your basic DFS player implementation.
@@ -23,64 +20,63 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
     Move lastMove = Move.NONE;
 
-    int turnaroundPenalty = 0;
+//    int turnaroundPenalty = 0;
 
-    float totalScore = 0;
-
-    int depth = 1;
-
-
+    int depth = 2;
 
 
 
     public Move chooseMove(Game game) {
+       double bestScore = Double.NEGATIVE_INFINITY;
+       Node bestNode = null;
 
-
-        State s = game.getCurrentState();
-
-        HashMap<State, Move> nextNodes = new HashMap<>();
-
-        for (Move m : game.getLegalPacManMoves()){
-            //Coloca os movimentos legais em um HashMap que liga o estado diretamente com o movimento.
-            //A instabilidade na ordem dos itens no HashMap adiciona um elemento orgânico de aleatoriedade.
-            nextNodes.put(game.getNextState(game.getCurrentState(), m), m);
+        Node origin = new Node(game, Move.NONE, game.getCurrentState(), 0);
+        List<List<Node>> allNodes = new ArrayList<>(depth+1);
+        while (allNodes.size() < depth+1){
+            allNodes.add(new ArrayList<>());
         }
 
+        System.out.println(allNodes.size());
+        List<Node> level0 = new ArrayList<>();
+        level0.add(origin);
+        allNodes.add(level0);
+        int i = 0;
+        while (i < depth){
+            for (Node node : allNodes.get(i)){
+                for (Node child : node.getChildren()) {
+                    allNodes.get(child.getLevel()).add(child);
+                }
+            }
+            i++;
+        }
+
+        System.out.println(allNodes);
 
 
-//        System.out.println("Estados seguintes: " + nextNodes.entrySet());
-//        for (Map.Entry node : nextNodes.entrySet()) {
-//            System.out.println("Pontuacao do estados seguintes: " + evaluateState((State) node.getKey()));
-//        }
-
-        State bestNode = game.getNextState(game.getCurrentState(), Move.NONE);
-//        System.out.println("Estado atual: " + game.getCurrentState());
-//        System.out.println("Pontuacao do estado atual: " + evaluateState(bestNode));
-        Move bestMove = Move.NONE;
-
-//      System.out.println(bestMove);
-
-
-        for (Map.Entry node : nextNodes.entrySet()) {
-
-
-            State nextNode = (State) node.getKey();
-
-
-            double turnaroundPenalty = (lastMove == nextNodes.get(nextNode).getOpposite() ? -10.0 : 0.0);
-
-
-            if (evaluateState(nextNode) + turnaroundPenalty >= evaluateState(bestNode)) {  //Isso evita que o PacMan faca o mesmo movimento anterior sem considerar danos graves
-                bestNode = nextNode;
-                bestMove = nextNodes.get(bestNode);
+        for (Node node : allNodes.get(depth)){
+            double currScore = node.evaluateState(this);
+            if (currScore >= bestScore){
+                bestScore = currScore;
+                bestNode = node;
             }
         }
-//        System.out.println("Movimento escolhido: " + bestMove);
-//        System.out.println(" ");
 
-        lastMove = bestMove;
-        return bestMove;
+        Node chosenNode = bestNode;
+
+        while (chosenNode.getParent().hasParent()){
+            chosenNode = chosenNode.getParent();
+        }
+
+        lastMove = chosenNode.getMove();
+
+        System.out.println("");
+
+        return chosenNode.getMove();
     }
+
+
+
+
 
 
 
@@ -110,7 +106,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
 //
 //    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
-        heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
+//        heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
 //    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
 
 
@@ -121,7 +117,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
 
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
-        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
+//        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
 
 
@@ -136,11 +132,11 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 //        HashMap<State, Move> nextNodes = new HashMap<>();
 //
 //        for (Move m : game.getLegalPacManMoves()) {
-//            //Coloca os movimentos legais em um HashMap que liga o estado diretamente com o movimento.
-//            //A instabilidade na ordem dos itens no HashMap adiciona um elemento orgânico de aleatoriedade.
 //            nextNodes.put(game.getNextState(game.getCurrentState(), m), m);
 //        }
 //    }
+
+
 
 
 }

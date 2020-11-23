@@ -1,0 +1,17 @@
+Item = nó da árvore
+Nível = lista de nós
+FuncaoSucessora = qualquer item de nível 1
+
+-Duas variáveis iniciais pra comparacao:
+	melhor pontuacao e melhor item (estado e movimento)
+- Uma variavel pro item atual (item zero/topo da árvore)
+- Construção da árvore (lista de listas de itens)
+	Cada sublista é um nível de profundidade
+- O item zero(item atual) em uma lista e essa lista na primeira lista/nível da árvore
+-  Gera os filhos do item atual e coloca no nível 1
+ 	Gera os filhos dos itens do nível K e coloca no nível K+1
+- Faz a comparacao de todos os itens do último nivel pra escolher o melhor nive
+	Comparando com a variavel de melhor pontuacao pra escolher o melhor item
+- Faz uma regressao com o item escolhido pra voltar até o item que originou ele no nível 1 (funcao sucessora)
+- Armazena o movimento da FuncaoSucessora numa variavel de UltimoMovimento
+- Retorna o movimento da FuncaoSucessora

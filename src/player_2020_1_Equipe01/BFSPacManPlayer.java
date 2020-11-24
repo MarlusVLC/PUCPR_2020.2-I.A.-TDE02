@@ -20,9 +20,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
     Move lastMove = Move.NONE;
 
-//    int turnaroundPenalty = 0;
-
-    int depth = 2;
+    int depth = 3;
 
 
 
@@ -36,24 +34,25 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
             allNodes.add(new ArrayList<>());
         }
 
-        System.out.println(allNodes.size());
-        List<Node> level0 = new ArrayList<>();
-        level0.add(origin);
-        allNodes.add(level0);
-        int i = 0;
-        while (i < depth){
+        allNodes.get(0).add(origin);
+//        System.out.println("OriginPos" + origin.getPacManLocation());
+        for (int i = 0; i < depth; i++){
             for (Node node : allNodes.get(i)){
                 for (Node child : node.getChildren()) {
+//                    System.out.print(child.getLevel());
+//                    System.out.print(child.getMove());
+//                    System.out.println(child.getPacManLocation());
                     allNodes.get(child.getLevel()).add(child);
                 }
             }
-            i++;
         }
 
-        System.out.println(allNodes);
-
-
-        for (Node node : allNodes.get(depth)){
+        int deepestLevel = allNodes.size()-1;
+        while (allNodes.get(deepestLevel).isEmpty()){
+            allNodes.remove(deepestLevel);
+            deepestLevel = allNodes.size()-1;
+        }
+        for (Node node : allNodes.get(deepestLevel)){
             double currScore = node.evaluateState(this);
             if (currScore >= bestScore){
                 bestScore = currScore;
@@ -68,8 +67,6 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
         }
 
         lastMove = chosenNode.getMove();
-
-        System.out.println("");
 
         return chosenNode.getMove();
     }
@@ -117,7 +114,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
 
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
-//        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
+        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
 
 

@@ -39,11 +39,15 @@ public class Node {
 
     public List<Node> getChildren(){
         List<Node> children = new ArrayList<>();
-        for (Move m : game.getLegalPacManMoves()){
-            State nextState = game.getNextState(state, m, getGhostMoves());
+        for (Move m : game.getLegalPacManMoves(state)){
+            //TODO:  CORRIGIR ESSA LINHA
+//            State nextState = game.getNextState(state, m, getGhostMoves());
+            if (game.isFinal(state))
+                break;
+            State nextState = game.getNextState(state, m);
             Node child = new Node(game, m,  nextState, this.level+1 );
             child.setParent(this);
-            if (child.equals(getParent()))
+            if (this.hasParent() && child.getPacManLocation().equals(this.getParent().getPacManLocation()))
                 continue;
             children.add(child);
         }
@@ -74,6 +78,10 @@ public class Node {
 
     public Move getMove(){
         return this.move;
+    }
+
+    public Location getPacManLocation(){
+        return this.state.getPacManLocation();
     }
 
     public void setLevel(int Level){

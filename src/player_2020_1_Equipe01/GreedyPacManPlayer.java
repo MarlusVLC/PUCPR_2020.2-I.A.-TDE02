@@ -39,36 +39,24 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
       }
 
 
-      System.out.println("Estados seguintes: " + nextNodes.entrySet());                                  //DEBUG
+
       for (Map.Entry node : nextNodes.entrySet()) {
           System.out.println("Pontuacao do estados seguintes: " + evaluateState((State) node.getKey())); //DEBUG
       }
 
       State bestNode = game.getNextState(game.getCurrentState(), Move.NONE);
-      System.out.println("Estado atual: " + game.getCurrentState());                                     //DEBUG
-      System.out.println("Pontuacao do estado atual: " + evaluateState(bestNode));                       //DEBUG
       Move bestMove = Move.NONE;
-
-//      System.out.println(bestMove);
-
 
       for (Map.Entry node : nextNodes.entrySet()) {
 
-
           State nextNode = (State) node.getKey();
-//          System.out.println("Último movimento: " + lastMove);
-//          System.out.println(nextNodes.get(nextNode));
-//          System.out.println(" ");
-
-//          double turnaroundPenalty = (lastMove == nextNodes.get(nextNode).getOpposite() ? -10.0 : 0.0);
 
           if (evaluateState(nextNode) + turnaroundPenalty >= evaluateState(bestNode)) {  //Isso evita que o PacMan faca o mesmo movimento anterior sem considerar danos graves
               bestNode = nextNode;
               bestMove = nextNodes.get(bestNode);
           }
       }
-      System.out.println("Movimento escolhido: " + bestMove);
-      System.out.println(" ");
+
 
       lastMove = bestMove;
       return bestMove;

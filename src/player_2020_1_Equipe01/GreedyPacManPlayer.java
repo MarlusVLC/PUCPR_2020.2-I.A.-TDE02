@@ -40,9 +40,6 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
 
 
 
-      for (Map.Entry node : nextNodes.entrySet()) {
-          System.out.println("Pontuacao do estados seguintes: " + evaluateState((State) node.getKey())); //DEBUG
-      }
 
       State bestNode = game.getNextState(game.getCurrentState(), Move.NONE);
       Move bestMove = Move.NONE;
@@ -77,31 +74,29 @@ public class GreedyPacManPlayer implements PacManPlayer, StateEvaluator {
 
       double heuristic = 1;
 
-    //TESTE DE FUNCAO OBJETIVO
+    //HEURÍSTICA 1: TESTE DE FUNCAO OBJETIVO
     if (Game.isLosing(state))
       heuristic += Double.NEGATIVE_INFINITY;
-//        heuristic += 10000;
     else if (Game.isWinning(state))
       heuristic +=  Double.POSITIVE_INFINITY;
-//        heuristic -= 10000;
     //TESTE DE FUNCAO OBJETIVO
 
 
 
 //
 //    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
-     heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
+//     heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
 //    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
 
 
 
       //HEURÍSTICA 2: PONTOS EXISTENTES NO MAPA
-      heuristic -= allDotLoc.size();
+//      heuristic -= 2*   allDotLoc.size();
       //HEURÍSTICA 2: PONTOS EXISTENTES NO MAPA
 
 
       //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
-      heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
+//      heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
       //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
 
 

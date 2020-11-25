@@ -19,6 +19,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
      */
 
     Move lastMove = Move.NONE;
+    Node lastChosenNode = null;
 
     int depth = 3;
 
@@ -35,17 +36,32 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
         }
 
         allNodes.get(0).add(origin);
-//        System.out.println("OriginPos" + origin.getPacManLocation());
+        System.out.println("OriginPos" + origin.getPacManLocation());
         for (int i = 0; i < depth; i++){
             for (Node node : allNodes.get(i)){
                 for (Node child : node.getChildren()) {
-//                    System.out.print(child.getLevel());
-//                    System.out.print(child.getMove());
-//                    System.out.println(child.getPacManLocation());
                     allNodes.get(child.getLevel()).add(child);
+
+                    System.out.print(child.getLevel());
+                    System.out.print(child.getMove());
+                    System.out.print(child.getParent().getMove());
+                    System.out.println(child.getPacManLocation());
+                    }
+
+                //EVITA QUE O PACMAN EXECUTE LOOPING
+                if (lastMove != Move.NONE && i == 0) {
+                    int backwardNode_index = 0;
+                    for (Node node1 : allNodes.get(1)) {
+                        if (node1.getMove().equals(lastMove.getOpposite()) )
+                            backwardNode_index = allNodes.get(1).indexOf(node1);
+                    }
+                    allNodes.get(1).remove(backwardNode_index);
                 }
+                //EVITA QUE O PACMAN EXECUTE LOOPING
             }
         }
+
+
 
         int deepestLevel = allNodes.size()-1;
         while (allNodes.get(deepestLevel).isEmpty()){
@@ -54,6 +70,7 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
         }
         for (Node node : allNodes.get(deepestLevel)){
             double currScore = node.evaluateState(this);
+            System.out.println(currScore);
             if (currScore >= bestScore){
                 bestScore = currScore;
                 bestNode = node;
@@ -62,11 +79,16 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
 
         Node chosenNode = bestNode;
 
+        System.out.println(bestScore);
+
         while (chosenNode.getParent().hasParent()){
             chosenNode = chosenNode.getParent();
         }
 
+
         lastMove = chosenNode.getMove();
+
+        System.out.println(" ");
 
         return chosenNode.getMove();
     }
@@ -86,36 +108,45 @@ public class BFSPacManPlayer implements PacManPlayer, StateEvaluator {
         Location pacLOC = state.getPacManLocation();
         List<Location> allGhostLoc = state.getGhostLocations();
         LocationSet allDotLoc = state.getDotLocations();
+        State lastState = state.getParent();
 
 
         double heuristic = 1;
 
         //TESTE DE FUNCAO OBJETIVO
         if (Game.isLosing(state))
-            heuristic += Double.NEGATIVE_INFINITY;
-//        heuristic += 10000;
+            heuristic -= 99999;
         else if (Game.isWinning(state))
-            heuristic +=  Double.POSITIVE_INFINITY;
-//        heuristic -= 10000;
+            heuristic += 99999;
         //TESTE DE FUNCAO OBJETIVO
+
 
 
 
 //
 //    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
-//        heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
-//    //HEURÍSTICA 1: DISTÂNCIA ENTRE PACMAN E O FANTASMA MAIS PRÓXIMO
+        heuristic += pacLOC.manhattanDistanceToClosest(pacLOC, allGhostLoc);
 
 
 
         //HEURÍSTICA 2: PONTOS EXISTENTES NO MAPA
         heuristic -= allDotLoc.size();
-        //HEURÍSTICA 2: PONTOS EXISTENTES NO MAPA
 
 
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
-        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
-        //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
+        heuristic -= pacLOC.euclideanDistanceToClosest(pacLOC, allDotLoc);
+
+        //HEURÍSTICA 4: DIREÇÃO DOS FANTASMAS todo: finalizar com as coordernadas de todos os fantasmas
+//        if (state.getParent() != null) {
+//            double lastDist = lastState.getPacManLocation().manhattanDistance(lastState.getPacManLocation(), lastState.getGhostLocations().get(0));
+//            double dist = pacLOC.manhattanDistance(pacLOC, allGhostLoc.get(0));
+//            if (dist >= lastDist)
+//                    heuristic += 25;
+//            else
+//                heuristic -= 25;
+//        }
+
+
 
 
 

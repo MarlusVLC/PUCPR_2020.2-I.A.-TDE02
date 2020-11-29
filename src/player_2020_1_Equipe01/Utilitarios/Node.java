@@ -1,4 +1,4 @@
-package player_2020_1_Equipe01;
+package player_2020_1_Equipe01.Utilitarios;
 
 import pacman.*;
 
@@ -14,6 +14,7 @@ public class Node {
     private Branch branch;
     private Node parent = null;
     private int level;
+    private int penaltyAddend = 0;
     private boolean visited = false;
 
 
@@ -34,24 +35,28 @@ public class Node {
     //Avalia o Estado do nó, retornando uma avaliação heurística numérica.
     //Usado como meio para a avaliação heurística
     public double evaluateState(StateEvaluator evaluator){
-        return evaluator.evaluateState(state);
+        return evaluator.evaluateState(state) - penaltyAddend;
     }
 
-    public List<Node> getChildren(){ //Expande o nó e gera uma lista de "filhos"
-        List<Node> children = new ArrayList<>(); //Declara a lista que será retornada
-        for (Move m : game.getLegalPacManMoves(state)){ //Percorre por todos os movimentos possíveis à partir do estado do nó.
+    public double AStarScore(StateEvaluator evaluator){
+        return -1*(evaluator.evaluateState(state) + level);
+    }
+
+    public List<Node> getChildren(){
+        List<Node> children = new ArrayList<>();
+        for (Move m : game.getLegalPacManMoves(state)){
             //TODO:  CORRIGIR ESSA LINHA
-//            State nextState = game.getNextState(state, m, getGhostMoves());
-            if (game.isFinal(state)) //O jogo acaba aqui?
-                break; //Se sim, pare a expansão.
-            State nextState = game.getNextState(state, m); //Instancia um próximo estado com base no estado e o movimento do nó.
-            Node child = new Node(game, m,  nextState, this.level+1 ); //Instancia um novo nó-filh que armazena um dos movimentos possíveis, seu estado associado e um nível mais profundo que seu "pai"
-            child.setParent(this); //Declara o antecessor desse nó como sendo o nó atual.
+            if (game.isFinal(state))
+                break;
+            State nextState = game.getNextState(state, m);
+            Node child = new Node(game, m,  nextState, this.level+1 );
+            child.setParent(this);
             if (this.hasParent() && child.getPacManLocation().equals(this.getParent().getPacManLocation()))
-                continue; //Se a localização do PacMan no próximo estado for semelhante ao do estado anterior, não inclua na lista
-            children.add(child); //Inclui o nó na lista
+                child.penaltyAddend += 10;
+//                continue;
+            children.add(child);
         }
-        return children; //Retorna a lista de filhos
+        return children;
     }
 
     public List<Move> getGhostMoves(){ //Retorno todos os movimentos possíveis dos fantasmas

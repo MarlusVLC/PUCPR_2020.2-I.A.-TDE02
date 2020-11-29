@@ -1,6 +1,8 @@
-package player_2020_1_Equipe01;
+package player_2020_1_Equipe01.Players;
 
 import pacman.*;
+import player_2020_1_Equipe01.Utilitarios.GeneralEvaluator;
+import player_2020_1_Equipe01.Utilitarios.Node;
 
 import java.util.*;
 
@@ -18,7 +20,7 @@ public class BFSPacManPlayer implements PacManPlayer {
      * @return a Move for Pac-Man
      */
 
-    GeneralEvaluator eval;
+    GeneralEvaluator eval = new GeneralEvaluator();
     Move lastMove = Move.NONE;
 
 

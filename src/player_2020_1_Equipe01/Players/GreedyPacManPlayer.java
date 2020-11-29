@@ -1,6 +1,7 @@
-package player_2020_1_Equipe01;
+package player_2020_1_Equipe01.Players;
 
 import pacman.*;
+import player_2020_1_Equipe01.Utilitarios.GeneralEvaluator;
 
 import java.util.*;
 
@@ -19,7 +20,7 @@ public class GreedyPacManPlayer implements PacManPlayer {
    */
 
 
-  GeneralEvaluator eval;
+  GeneralEvaluator eval = new GeneralEvaluator();
   Move lastMove = Move.NONE;
   int turnaroundPenalty = 0;
 

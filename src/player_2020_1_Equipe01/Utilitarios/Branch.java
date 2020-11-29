@@ -1,4 +1,4 @@
-package player_2020_1_Equipe01;
+package player_2020_1_Equipe01.Utilitarios;
 
 import pacman.Move;
 import pacman.StateEvaluator;

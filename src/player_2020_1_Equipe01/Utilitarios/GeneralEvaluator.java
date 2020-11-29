@@ -1,4 +1,4 @@
-package player_2020_1_Equipe01;
+package player_2020_1_Equipe01.Utilitarios;
 
 import pacman.*;
 
@@ -46,7 +46,6 @@ public class GeneralEvaluator implements StateEvaluator {
 //        System.out.println("HR: " + heuristic);
 //        System.out.println("");
 
-
-        return heuristic;
+         return heuristic;
     }
 }

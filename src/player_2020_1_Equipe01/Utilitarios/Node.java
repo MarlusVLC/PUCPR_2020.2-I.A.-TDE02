@@ -52,23 +52,26 @@ public class Node {
             Node child = new Node(game, m,  nextState, this.level+1 );
             child.setParent(this);
             if (this.hasParent() && child.getPacManLocation().equals(this.getParent().getPacManLocation()))
-                child.penaltyAddend += 10;
-//                continue;
+//                child.penaltyAddend += 10;
+                continue;
             children.add(child);
         }
         return children;
     }
 
-    public List<Move> getGhostMoves(){ //Retorno todos os movimentos possíveis dos fantasmas
-        List<GhostPlayer> ghostPlayers = game.getGhostPlayers();
-        List<Move> ghostMoves = new ArrayList<Move>();
-        for (int i = 0; i < ghostPlayers.size(); i++) {
-            GhostPlayer player = ghostPlayers.get(i);
-            Move move = player.chooseMove(game, i);
-            ghostMoves.add(move);
-        }
-        return ghostMoves;
-    }
+//    public List<Move> getGhostMoves(State state){ //Retorno todos os movimentos possíveis dos fantasmas
+//        List<List<Move>>
+//
+//        game.getLegalGhostMoves()
+//        List<GhostPlayer> ghostPlayers = game.getGhostPlayers();
+//        List<Move> ghostMoves = new ArrayList<Move>();
+//        for (int i = 0; i < ghostPlayers.size(); i++) {
+//            GhostPlayer player = ghostPlayers.get(i);
+//            Move move = player.chooseMove(game, i);
+//            ghostMoves.add(move);
+//        }
+//        return ghostMoves;
+//    }
 
 
     public boolean hasBeenVisited(){
@@ -92,6 +95,10 @@ public class Node {
     public void setLevel(int Level){
         this.level = level;
     }  //determina o nível de profundidade na árvore
+
+    public void addPenaltyAddend(int addend){
+        this.penaltyAddend += addend;
+    }
 
     public int getLevel (){
         return level;

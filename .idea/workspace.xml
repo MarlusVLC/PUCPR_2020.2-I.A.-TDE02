@@ -16,13 +16,9 @@
       <change beforePath="$PROJECT_DIR$/../Aula 11/Jogo_DA_velha/src/MarlusViniciusPlayer/MarlusPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula 11/Jogo_DA_velha/src/MarlusViniciusPlayer/MarlusPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MininBob-StatePattern" beforeDir="false" afterPath="$PROJECT_DIR$/../MininBob-StatePattern" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doc_relatoria_greedy.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Doc_relatoria_greedy.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TDE_02/META-INF/TDE_02.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacman/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/AStarPacManPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/AStarPacManPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/BFSPacManPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/BFSPacManPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/GreedyPacManPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/GreedyPacManPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Branch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/GeneralEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/GeneralEvaluator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Node.java" afterDir="false" />
     </list>
@@ -108,34 +104,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606571001942">
+    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606927147717">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/326.0.1594.1080@326.0.1594.1080" timestamp="1606571001942" />
+    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/326.0.1594.1080@326.0.1594.1080" timestamp="1606927147717" />
     <state x="954" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1606418138876">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
     <state x="954" y="245" key="#com.intellij.ide.util.MemberChooser/326.0.1594.1080@326.0.1594.1080" timestamp="1606418138876" />
-    <state x="654" y="110" key="CommitChangelistDialog2" timestamp="1606688165071">
+    <state x="654" y="110" key="CommitChangelistDialog2" timestamp="1606691493166">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state x="654" y="110" key="CommitChangelistDialog2/326.0.1594.1080@326.0.1594.1080" timestamp="1606688165071" />
-    <state width="322" height="899" key="GridCell.Tab.0.bottom" timestamp="1606690409603">
+    <state x="654" y="110" key="CommitChangelistDialog2/326.0.1594.1080@326.0.1594.1080" timestamp="1606691493166" />
+    <state width="229" height="899" key="GridCell.Tab.0.bottom" timestamp="1606950368395">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="322" height="899" key="GridCell.Tab.0.bottom/326.0.1594.1080@326.0.1594.1080" timestamp="1606690409603" />
-    <state width="322" height="899" key="GridCell.Tab.0.center" timestamp="1606690409603">
+    <state width="229" height="899" key="GridCell.Tab.0.bottom/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
+    <state width="229" height="899" key="GridCell.Tab.0.center" timestamp="1606950368395">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="322" height="899" key="GridCell.Tab.0.center/326.0.1594.1080@326.0.1594.1080" timestamp="1606690409603" />
-    <state width="322" height="899" key="GridCell.Tab.0.left" timestamp="1606690409602">
+    <state width="229" height="899" key="GridCell.Tab.0.center/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
+    <state width="229" height="899" key="GridCell.Tab.0.left" timestamp="1606950368395">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="322" height="899" key="GridCell.Tab.0.left/326.0.1594.1080@326.0.1594.1080" timestamp="1606690409602" />
-    <state width="322" height="899" key="GridCell.Tab.0.right" timestamp="1606690409603">
+    <state width="229" height="899" key="GridCell.Tab.0.left/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
+    <state width="229" height="899" key="GridCell.Tab.0.right" timestamp="1606950368395">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="322" height="899" key="GridCell.Tab.0.right/326.0.1594.1080@326.0.1594.1080" timestamp="1606690409603" />
+    <state width="229" height="899" key="GridCell.Tab.0.right/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
     <state width="1495" height="77" key="GridCell.Tab.1.bottom" timestamp="1606597546904">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>

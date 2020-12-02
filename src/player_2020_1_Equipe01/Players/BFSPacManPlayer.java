@@ -53,13 +53,13 @@ public class BFSPacManPlayer implements PacManPlayer {
                     }
 
 //                EVITA QUE O PACMAN EXECUTE LOOPING
-                if (lastMove != Move.NONE && i == 0) { //Checa se estamos no primeiro nível
-                    int backwardNode_index = 0; //Para guardar a posição do nó de movimento inverso na lista
-                    for (Node node1 : allNodes.get(1)) { //Percorre todos os nós do primeiro nível
-                        if (node1.getMove().equals(lastMove.getOpposite()) ) //Verifica se seu movimento é igual ao ultimo movimento executado
-                            backwardNode_index = allNodes.get(1).indexOf(node1); //Pega o índice
+                if (lastMove != Move.NONE && i == 0) {
+                    int backwardNode_index = 0;
+                    for (Node node1 : allNodes.get(1)) {
+                        if (node1.getMove().equals(lastMove.getOpposite()) )
+                            backwardNode_index = allNodes.get(1).indexOf(node1);
                     }
-                    allNodes.get(1).remove(backwardNode_index); //Remove o nó que tem o último movimento e o remove do primeiro nível
+                    allNodes.get(1).remove(backwardNode_index);
                 }
 //                EVITA QUE O PACMAN EXECUTE LOOPING
             }

@@ -39,7 +39,7 @@ public class GeneralEvaluator implements StateEvaluator {
 
 
         //HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
-//        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
+        heuristic -= pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc);
 //        System.out.println("H3: "  + (-pacLOC.manhattanDistanceToClosest(pacLOC, allDotLoc)));
 //        HEURÍSTICA 3: DISTÂNCIA ENTRE O PACMAN E O PONTO MAIS PRÓXIMO
 

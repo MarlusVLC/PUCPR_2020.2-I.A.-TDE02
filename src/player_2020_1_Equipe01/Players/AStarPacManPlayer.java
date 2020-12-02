@@ -14,7 +14,7 @@ public class AStarPacManPlayer implements PacManPlayer {
     Move lastMove = Move.NONE;
 
 
-    int depth = 4;
+    int depth = 12;
 
 
 
@@ -30,9 +30,24 @@ public class AStarPacManPlayer implements PacManPlayer {
         System.out.println("");
         System.out.println(origin.getPacManLocation());
 
+        //                EVITA QUE O PACMAN EXECUTE LOOPING
+        if (lastMove != Move.NONE) {
+            int backwardNode_index = -1;
+            for (Node node : allNodes){
+                if (node.getMove().getOpposite() == lastMove)
+                    backwardNode_index = allNodes.indexOf(node);
+            }
+            if (backwardNode_index > -1){
+                //                allNodes.remove(backwardNode_index);
+                allNodes.get(backwardNode_index).addPenaltyAddend(10);
+            }
+        }
+//                EVITA QUE O PACMAN EXECUTE LOOPING
+
 
 
         Node visitedNode = null;
+        List<Node> randomQuery = new ArrayList<>();
 
         while (bestNode == null){
 
@@ -40,11 +55,26 @@ public class AStarPacManPlayer implements PacManPlayer {
                 System.out.print(node.getMove());
                 System.out.print(node.getLevel());
                 System.out.println(node.evaluateState(eval));
-                if (node.AStarScore(eval) <= lowestCost){
+                if (node.AStarScore(eval) < lowestCost){
                     lowestCost = node.AStarScore(eval);
                     visitedNode = node;
+                    randomQuery.clear();
+                }
+                //Se for igual adicione em um lista que gerárá um resultado aleaório
+                else if (node.AStarScore(eval) == lowestCost){
+                    randomQuery.add(node);
+                    if (visitedNode != null && !randomQuery.contains(visitedNode)){
+                        randomQuery.add(visitedNode);
+                    }
                 }
             }
+
+            //ESCOLHER UM MOVIENTO ALEATÓRIO, CASO SEJAM TODOS IGUAIS
+            if (!randomQuery.isEmpty()) {
+                visitedNode = getRandomNode(randomQuery);
+                randomQuery.clear();
+            }
+
 
 
 
@@ -89,6 +119,13 @@ public class AStarPacManPlayer implements PacManPlayer {
                 return false;
         }
         return true;
+    }
+
+    private Node getRandomNode(List<Node> nodeList){
+//        Random r = new Random();
+        System.out.println(nodeList.size());
+        int randomNode = new Random().nextInt(nodeList.size());
+        return nodeList.get(randomNode);
     }
 }
 

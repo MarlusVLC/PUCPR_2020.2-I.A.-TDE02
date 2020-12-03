@@ -18,9 +18,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacman/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/AStarPacManPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/AStarPacManPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/BFSPacManPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Players/BFSPacManPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/GeneralEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/GeneralEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player_2020_1_Equipe01/Utilitarios/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pacman.Game" />
       <module name="TDE_02" />
-      <option name="PROGRAM_PARAMETERS" value="-display gui -pacman player_2020_1_Equipe01.Players.AStarPacManPlayer" />
+      <option name="PROGRAM_PARAMETERS" value="-display gui -pacman player_2020_1_Equipe01.Players.BFSPacManPlayer" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="pacman.*" />
@@ -104,10 +102,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606927147717">
+    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607009544109">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/326.0.1594.1080@326.0.1594.1080" timestamp="1606927147717" />
+    <state x="603" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/326.0.1594.1080@326.0.1594.1080" timestamp="1607009544109" />
     <state x="954" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1606418138876">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
@@ -116,22 +114,22 @@
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
     <state x="654" y="110" key="CommitChangelistDialog2/326.0.1594.1080@326.0.1594.1080" timestamp="1606691493166" />
-    <state width="229" height="899" key="GridCell.Tab.0.bottom" timestamp="1606950368395">
+    <state width="385" height="794" key="GridCell.Tab.0.bottom" timestamp="1607009841824">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="229" height="899" key="GridCell.Tab.0.bottom/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
-    <state width="229" height="899" key="GridCell.Tab.0.center" timestamp="1606950368395">
+    <state width="385" height="794" key="GridCell.Tab.0.bottom/326.0.1594.1080@326.0.1594.1080" timestamp="1607009841824" />
+    <state width="385" height="794" key="GridCell.Tab.0.center" timestamp="1607009841824">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="229" height="899" key="GridCell.Tab.0.center/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
-    <state width="229" height="899" key="GridCell.Tab.0.left" timestamp="1606950368395">
+    <state width="385" height="794" key="GridCell.Tab.0.center/326.0.1594.1080@326.0.1594.1080" timestamp="1607009841824" />
+    <state width="385" height="794" key="GridCell.Tab.0.left" timestamp="1607009841824">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="229" height="899" key="GridCell.Tab.0.left/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
-    <state width="229" height="899" key="GridCell.Tab.0.right" timestamp="1606950368395">
+    <state width="385" height="794" key="GridCell.Tab.0.left/326.0.1594.1080@326.0.1594.1080" timestamp="1607009841824" />
+    <state width="385" height="794" key="GridCell.Tab.0.right" timestamp="1607009841824">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
-    <state width="229" height="899" key="GridCell.Tab.0.right/326.0.1594.1080@326.0.1594.1080" timestamp="1606950368395" />
+    <state width="385" height="794" key="GridCell.Tab.0.right/326.0.1594.1080@326.0.1594.1080" timestamp="1607009841824" />
     <state width="1495" height="77" key="GridCell.Tab.1.bottom" timestamp="1606597546904">
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
@@ -148,6 +146,10 @@
       <screen x="326" y="0" width="1594" height="1080" />
     </state>
     <state width="1495" height="77" key="GridCell.Tab.1.right/326.0.1594.1080@326.0.1594.1080" timestamp="1606597546904" />
+    <state x="803" y="247" width="672" height="678" key="search.everywhere.popup" timestamp="1606951897909">
+      <screen x="326" y="0" width="1594" height="1080" />
+    </state>
+    <state x="803" y="247" width="672" height="678" key="search.everywhere.popup/326.0.1594.1080@326.0.1594.1080" timestamp="1606951897909" />
   </component>
   <component name="masterDetails">
     <states>

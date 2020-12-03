@@ -14,7 +14,7 @@ public class AStarPacManPlayer implements PacManPlayer {
     Move lastMove = Move.NONE;
 
 
-    int depth = 12;
+    int depth = 5;
 
 
 
@@ -38,8 +38,8 @@ public class AStarPacManPlayer implements PacManPlayer {
                     backwardNode_index = allNodes.indexOf(node);
             }
             if (backwardNode_index > -1){
-                //                allNodes.remove(backwardNode_index);
-                allNodes.get(backwardNode_index).addPenaltyAddend(10);
+//                                allNodes.remove(backwardNode_index);  //LIGUE SE QUISER QUE ELE SEMPRE VÁ EM FRENTE
+                allNodes.get(backwardNode_index).addPenaltyAddend(1000); //LIGUE SE QUISER ADICIONAR UMA PENALIDADE AO MOVIMENTO INVERSO AO INVÉS DE DELETAR.
             }
         }
 //                EVITA QUE O PACMAN EXECUTE LOOPING
@@ -112,6 +112,16 @@ public class AStarPacManPlayer implements PacManPlayer {
 //        System.out.println(" ");
         return chosenNode.getMove();
     }
+
+
+
+
+
+
+
+
+
+
 
     private boolean isCornered(List<Node> nodeList, Game game){
         for (Node node : nodeList){

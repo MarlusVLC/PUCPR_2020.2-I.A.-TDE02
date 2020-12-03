@@ -14,7 +14,7 @@ public class AStarPacManPlayer implements PacManPlayer {
     Move lastMove = Move.NONE;
 
 
-    int depth = 5;
+    int depth = 9;
 
 
 

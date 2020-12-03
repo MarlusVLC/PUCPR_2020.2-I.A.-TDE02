@@ -127,4 +127,47 @@ public class Node {
         }
         return node;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //MINIMAX TOOLS
+//    private boolean isMinimizer(){
+//        if (!isMaximizer() && this.level != 0)
+//            return true;
+//        return false;
+//    }
+//
+//    private boolean isMaximizer(){
+//        if (this.level % 2 == 0){
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    private boolean minimize(){
+//
+//    }
+//
+//    private boolean maximize();
+//
+//    public Node getBestChild();
+
 }
